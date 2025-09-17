@@ -1,8 +1,15 @@
-!
-2
-3
-3
-
-4
-5
-"Hello Guys"
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building project...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying project...'
+            }
+        }
+    }
+}
