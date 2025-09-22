@@ -1,19 +1,22 @@
-<target name="retrieve" depends="init">
-    <echo message="=== Starting component retrieval ===" />
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Jenkins-Ant-Project" default="retrieve" basedir=".">
 
-    <!--
-    <get src="https://example.com/sample-library.jar"
-         dest="${lib.dir}/sample-library.jar"
-         verbose="true"
-         usetimestamp="true" />
-    -->
+    <!-- Initialization target -->
+    <target name="init">
+        <mkdir dir="lib"/>
+        <mkdir dir="downloads"/>
+    </target>
 
-    <echo message="Retrieved: component-1.jar" />
-    <echo message="Retrieved: component-2.jar" />
+    <!-- Retrieve target -->
+    <target name="retrieve" depends="init">
+        <echo message="=== Starting component retrieval ==="/>
+        <!-- Example: Download a file -->
+        <get src="https://example.com/sample-library.jar"
+             dest="lib/sample-library.jar"
+             skipexisting="true"/>
+    </target>
 
-    <echo message="=== Retrieval complete ===" />
-</target>
-
+</project>
 
 
 
