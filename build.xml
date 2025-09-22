@@ -1,40 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="Jenkins-Ant-Project" default="retrieve" basedir=".">
+<target name="retrieve" depends="init">
+    <echo message="=== Starting component retrieval ===" />
 
-    <!-- Properties -->
-    <property name="lib.dir" value="lib"/>
-    <property name="download.dir" value="downloads"/>
+    <!--
+    <get src="https://example.com/sample-library.jar"
+         dest="${lib.dir}/sample-library.jar"
+         verbose="true"
+         usetimestamp="true" />
+    -->
 
-    <!-- Create required folders -->
-    <target name="init">
-        <mkdir dir="${lib.dir}" />
-        <mkdir dir="${download.dir}" />
-    </target>
+    <echo message="Retrieved: component-1.jar" />
+    <echo message="Retrieved: component-2.jar" />
 
-    <!-- Retrieve target -->
-    <target name="retrieve" depends="init">
-        <echo message="=== Starting component retrieval ===" />
+    <echo message="=== Retrieval complete ===" />
+</target>
 
-        <!-- Example: Download a file from the internet -->
-        <get src="https://example.com/sample-library.jar"
-             dest="${lib.dir}/sample-library.jar"
-             verbose="true"
-             usetimestamp="true" />
-
-        <!-- Example: Simulate downloading multiple components -->
-        <echo message="Retrieved: component-1.jar" />
-        <echo message="Retrieved: component-2.jar" />
-
-        <echo message="=== Retrieval complete ===" />
-    </target>
-
-    <!-- Optional clean target -->
-    <target name="clean">
-        <delete dir="${lib.dir}" />
-        <delete dir="${download.dir}" />
-    </target>
-
-</project>
 
 
 
