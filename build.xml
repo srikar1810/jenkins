@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Jenkins-Ant-Project" basedir="." default="build">
+<project name="Jenkins-Ant-Project" default="retrieve" basedir=".">
 
-  <!-- Define properties -->
-  <property name="build.dir" value="build" />
-  <property name="src.dir" value="src" />
+    <!-- Properties -->
+    <property name="lib.dir" value="lib"/>
+    <property name="download.dir" value="downloads"/>
 
-  <!-- Initialize build directory -->
-  <target name="init">
-      <mkdir dir="${build.dir}" />
-  </target>
+    <!-- Create required folders -->
+    <target name="init">
+        <mkdir dir="${lib.dir}" />
+        <mkdir dir="${download.dir}" />
+    </target>
 
-  <!-- Compile the code -->
-  <target name="compile" depends="init">
-      <javac srcdir="${src.dir}" destdir="${build.dir}" />
-  </target>
+    <!-- Retrieve target -->
+    <target name="retrieve" depends="init">
+        <echo message="=== Starting component retrieval ===" />
 
-  <!-- Clean the build directory -->
-  <target name="clean">
-      <delete dir="${build.dir}" />
-  </target>
+        <!-- Example: Download a file from the internet -->
+        <get src="https://example.com/sample-library.jar"
+             dest="${lib.dir}/sample-library.jar"
+             verbose="true"
+             usetimestamp="true" />
 
-  <!-- Default build target -->
-  <target name="build" depends="clean, compile">
-      <echo message="Build completed successfully!" />
-  </target>
+        <!-- Example: Simulate downloading multiple components -->
+        <echo message="Retrieved: component-1.jar" />
+        <echo message="Retrieved: component-2.jar" />
+
+        <echo message="=== Retrieval complete ===" />
+    </target>
+
+    <!-- Optional clean target -->
+    <target name="clean">
+        <delete dir="${lib.dir}" />
+        <delete dir="${download.dir}" />
+    </target>
 
 </project>
+
+
+
