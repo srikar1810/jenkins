@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Jenkins-Ant-Project" basedir="." default="build">
+
+  <!-- Define properties -->
+  <property name="build.dir" value="build" />
+  <property name="src.dir" value="src" />
+
+  <!-- Initialize build directory -->
+  <target name="init">
+      <mkdir dir="${build.dir}" />
+  </target>
+
+  <!-- Compile the code -->
+  <target name="compile" depends="init">
+      <javac srcdir="${src.dir}" destdir="${build.dir}" />
+  </target>
+
+  <!-- Clean the build directory -->
+  <target name="clean">
+      <delete dir="${build.dir}" />
+  </target>
+
+  <!-- Default build target -->
+  <target name="build" depends="clean, compile">
+      <echo message="Build completed successfully!" />
+  </target>
+
+</project>
