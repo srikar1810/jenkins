@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Jenkins-Ant-Project" default="init" basedir=".">
+<project name="Jenkins-Ant-Project" default="retrieve" basedir=".">
 
-    <!-- Initialization: create necessary directories -->
     <target name="init">
         <mkdir dir="lib"/>
         <mkdir dir="downloads"/>
-        <echo message="Initialization complete: directories created."/>
+        <echo message="Initialization complete."/>
+    </target>
+
+    <target name="retrieve" depends="init">
+        <echo message="Retrieve target executed successfully."/>
     </target>
 
 </project>
-
 
