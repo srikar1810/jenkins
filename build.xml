@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Jenkins-Ant-Project" default="retrieve" basedir=".">
+<project name="Jenkins-Ant-Project" default="init" basedir=".">
 
-    <!-- Initialization target -->
+    <!-- Initialization: create necessary directories -->
     <target name="init">
         <mkdir dir="lib"/>
         <mkdir dir="downloads"/>
-    </target>
-
-    <!-- Retrieve target -->
-    <target name="retrieve" depends="init">
-        <echo message="=== Starting component retrieval ==="/>
-        <!-- Example: Download a file -->
-        <get src="https://example.com/sample-library.jar"
-             dest="lib/sample-library.jar"
-             skipexisting="true"/>
+        <echo message="Initialization complete: directories created."/>
     </target>
 
 </project>
-
 
 
