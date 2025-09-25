@@ -1,15 +1,27 @@
-<project name="Salesforce Ant Build" default="validate" basedir="." xmlns:sf="antlib:com.salesforce">
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Salesforce Validation" default="validate" basedir=".">
+ 
+    <!-- Load properties -->
     <property file="build.properties"/>
-    <property environment="env"/>
-
+ 
+    <!-- Classpath for Ant-Salesforce jar -->
+    <path id="ant-salesforce-classpath">
+        <pathelement location="ant-salesforce.jar"/>
+    </path>
+ 
+    <!-- Salesforce Ant task definition -->
+    <taskdef resource="com/salesforce/antlib.xml" classpathref="ant-salesforce-classpath"/>
+ 
+    <!-- Validate without running tests -->
     <target name="validate">
-        <mkdir dir="src"/>
-        <sf:retrieve
+        <sf:deploy
             username="${sf.username}"
             password="${sf.password}"
             serverurl="${sf.serverurl}"
-            retrieveTarget="src"
-            unpackaged="package.xml"/>
+            maxPoll="20"
+            deployRoot="src"
+            checkOnly="true"
+            testLevel="NoTestRun"/>
     </target>
-
+ 
 </project>
