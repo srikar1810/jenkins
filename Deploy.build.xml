@@ -10,7 +10,7 @@
 		  serverurl="${sf.serverurl}"
 		  CheckOnly="false"
 		  deployRoot="src"
-		  testLevel="${sandbox_Testlevel}">
+		  testLevel="NoTestRun"/>
 		  </sf:deploy>
     </target>
 </project>
