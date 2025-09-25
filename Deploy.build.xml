@@ -11,6 +11,6 @@
 		  CheckOnly="false"
 		  deployRoot="src"
 		  testLevel="NoTestRun"/>
-		  </sf:deploy>
+		  
     </target>
 </project>
