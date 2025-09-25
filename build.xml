@@ -1,8 +1,8 @@
-<project name="Salesforce Ant Build" default="validate" basedir="." xmlns:sf="antlib:com.salesforce">
+<project name="Salesforce Ant Build" default="retrieve" basedir="." xmlns:sf="antlib:com.salesforce">
 <property file="build.properties"/>
 <property environment="env"/>
  
-    <target name="validate">
+    <target name="retrieve">
 <mkdir dir="src"/>
 <sf:retrieve
             username="${sf.username}"
