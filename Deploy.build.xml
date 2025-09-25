@@ -3,7 +3,7 @@
     <property file="build.properties"/>
     <property environment="env"/>
     
-	<target name="deploy">
+	<target name="Deploy">
         <sf:deploy
 		  username="${sf.username}"
 		  password="${sf.password}"
