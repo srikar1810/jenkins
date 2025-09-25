@@ -1,14 +1,16 @@
-<project name="Sample usage of Salesforce Ant tasks" default="validate" basedir="." xmlns:sf="antlib:com.salesforce">
+<project name="Salesforce Ant Build" default="validate" basedir="." xmlns:sf="antlib:com.salesforce">
 
     <property file="build.properties"/>
     <property environment="env"/>
-    
-	<target name="validate">
-        <sf:deploy
-		  username="${sf.username}"
-		  password="${sf.password}"
-		  serverurl="${sf.serverurl}"
-		  CheckOnly="true"
-		  deployRoot="C:\Users\Raman1501576\Downloads\ANT Workspace (1)\ANT Workspace\ANT Validate\src"/>
+
+    <target name="validate">
+        <sf:deploy 
+            username="${sf.username}" 
+            password="${sf.password}" 
+            serverurl="${sf.serverurl}" 
+            deployRoot="src" 
+            runAllTests="true" 
+            checkOnly="true"/>
     </target>
+
 </project>
